@@ -1,0 +1,10 @@
+*.pyc
+*.db
+*.wpu
+*.swp
+.vagrant
+.DS_Store
+TOM_SCRAPY_RUNNER.py
+wingdbstub.py
+wingdbstub.pyc
+wingdebugpw
