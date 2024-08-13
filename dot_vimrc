@@ -1,0 +1,38 @@
+set modeline
+syntax on
+set number
+nnoremap <F2> :set nonumber!<CR>:set foldcolumn=0<CR>
+
+autocmd BufRead,BufNewFile *.py set tabstop=4
+autocmd BufRead,BufNewFile *.py set shiftwidth=4
+autocmd BufRead,BufNewFile *.py set expandtab
+autocmd BufRead,BufNewFile *.py set softtabstop=4
+autocmd BufRead,BufNewFile *.py syntax on
+autocmd BufRead,BufNewFile *.py set ai
+autocmd BufRead *.py set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+
+autocmd BufRead,BufNewFile *.xml set tabstop=2
+autocmd BufRead,BufNewFile *.xml set shiftwidth=2
+autocmd BufRead,BufNewFile *.xml set expandtab
+autocmd BufRead,BufNewFile *.xml set softtabstop=2
+autocmd BufRead,BufNewFile *.xml syntax on
+autocmd BufRead,BufNewFile *.xml set ai
+
+autocmd BufRead,BufNewFile *.tex set tabstop=4
+autocmd BufRead,BufNewFile *.tex set shiftwidth=4
+autocmd BufRead,BufNewFile *.tex set expandtab
+autocmd BufRead,BufNewFile *.tex set softtabstop=4
+
+autocmd BufRead,BufNewFile *.json set tabstop=4
+autocmd BufRead,BufNewFile *.json set shiftwidth=4
+autocmd BufRead,BufNewFile *.json set expandtab
+autocmd BufRead,BufNewFile *.json set softtabstop=4
+autocmd BufRead,BufNewFile *.json syntax on
+autocmd BufRead,BufNewFile *.json set ai
+
+autocmd BufRead,BufNewFile *.coffee set tabstop=4
+autocmd BufRead,BufNewFile *.coffee set shiftwidth=4
+autocmd BufRead,BufNewFile *.coffee set expandtab
+autocmd BufRead,BufNewFile *.coffee set softtabstop=4
+autocmd BufRead,BufNewFile *.coffee syntax on
+autocmd BufRead,BufNewFile *.coffee set ai
