@@ -6,8 +6,12 @@ eval "$(starship init zsh)"
 python3 -c "import this"
 
 # Created by `pipx` on 2023-09-02 19:28:44
+
 {{- if eq .chezmoi.os "darwin" -}}
 export PATH="$PATH:/Users/tomwardill/.local/bin"
 {{ else }}
 export PATH="$PATH:/home/tomwardill/.local/bin"
 {{ end -}}
+
+. "$HOME/.atuin/bin/env"
+eval "$(atuin init zsh)"
