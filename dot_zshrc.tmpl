@@ -8,10 +8,48 @@ python3 -c "import this"
 # Created by `pipx` on 2023-09-02 19:28:44
 
 {{- if eq .chezmoi.os "darwin" -}}
+{{- if not (eq .chezmoi.username "ThomasWa") }}
 export PATH="$PATH:/Users/tomwardill/.local/bin"
+{{ end -}}
 {{ else }}
 export PATH="$PATH:/home/tomwardill/.local/bin"
 {{ end -}}
 
+{{- if eq .chezmoi.username "ThomasWa" }}
+source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
+source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
+
+# Add .local/bin to path
+path+=('/home/ThomasWa/.local/bin')
+path+=('/opt/puppetlabs/bin')
+path+=('/Users/ThomasWa/Library/Python/3.11/bin')
+
+# enable shell history
+HISTFILE="${HOME}/.zsh_history"
+HISTSIZE=65536
+SAVEHIST=16384
+setopt extendedhistory
+setopt sharehistory
+setopt histverify
+
+# aliases
+alias t="todo.sh"
+alias tf="terraform"
+alias instance-find="gcloud compute instances list | grep"
+alias ifind="instance-find"
+alias mkctl="microk8s kubectl"
+
+terraform-targets () {
+  sed 's/\x1b\[[0-9;]*m//g' | grep -o '# [^( ]* ' | grep '\.' | sed " s/^# /-target '/; s/ $/'/; "
+}
+
+# gcloud project switching
+alias gcloud-integration="gcloud config set project durable-zoo-189519"
+alias gcloud-production="gcloud config set project opg-production"
+alias gcloud-labs03="gcloud config set project platform-engineering-lab-03"
+{{ end -}}
+
+{{- if not (eq .chezmoi.username "ThomasWa") }}
 . "$HOME/.atuin/bin/env"
 eval "$(atuin init zsh)"
+{{ end -}}

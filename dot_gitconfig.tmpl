@@ -3,11 +3,28 @@
 	editor = vim
 	autocrlf = input
 	symlinks = false
+
+{{- if eq .chezmoi.username "ThomasWa" }}
+[user]
+	name = Tom Wardill
+	email = thomaswa@payoneer.com
+	signingkey = sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIPppItVZXcL1CE2PFnHJy2Wmh71nzB1GMDdGMv/66RaOAAAABHNzaDo= ThomasWa@presentation-MacBook-Pro
+[commit]
+	gpgsign = true
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	allowedSignersFile = /home/ThomasWa/.ssh/allowed_signers
+{{ else }}
+
 [user]
 	name = Tom Wardill
 	email = tom@howrandom.net
 [github]
 	user = tomwardill
+
+{{ end -}}
+
 [alias]
 	st = status
         lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
